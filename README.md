@@ -86,3 +86,6 @@ A análise de riscos é crucial para identificar possíveis problemas que podem 
     Perda de Dados: Risco de perda de dados devido a falhas no servidor ou no banco de dados.
         Mitigação: Implementar backups regulares e um sistema de recuperação de dados.
 
+
+
+Autor: Lucas Alvares
