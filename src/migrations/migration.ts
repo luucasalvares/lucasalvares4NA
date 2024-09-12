@@ -1,4 +1,4 @@
-import pool from '../database';
+import pool from '../config/database';
 
 const createUsersTable = async () => {
   const client = await pool.connect();
@@ -19,4 +19,4 @@ const createUsersTable = async () => {
   }
 };
 
-createUsersTable().then(() => process.exit(0));
+createUsersTable().then(() => process.exit(0))
