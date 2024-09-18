@@ -19,4 +19,4 @@ const createUsersTable = async () => {
   }
 };
 
-createUsersTable().then(() => process.exit(0))
+createUsersTable().then(() => process.exit(0));
