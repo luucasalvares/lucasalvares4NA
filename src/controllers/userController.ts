@@ -1,27 +1,25 @@
-import { Request, Response } from "express";
-import pool from "../config/database";
+import { Request, Response } from 'express';
+import { UserService } from '../services/userService';
+import { isValidEmail, isValidName, isCapitalized } from '../helpers/validators';
 
-// Função para obter todos os usuários
-export const getUsers = async (req: Request, res: Response) => {
-  try {
-    const { rows } = await pool.query("SELECT id,name,email FROM users");
-    res.status(200).json(rows);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: "Erro ao buscar usuários" });
-  }
-};
+const userService = new UserService();
 
-// Função para adicionar um novo usuário
 export const addUser = async (req: Request, res: Response) => {
   const { name, email } = req.body;
+
   try {
-    const queryText =
-      "INSERT INTO users(name, email) VALUES($1, $2) RETURNING *";
-    const { rows } = await pool.query(queryText, [name, email]);
-    res.status(201).json(rows[0]);
+    if (!isValidEmail(email)) {
+      return res.status(400).json({ error: 'Email inválido' });
+    }
+
+    if (!isValidName(name) || !isCapitalized(name)) {
+      return res.status(400).json({ error: 'Nome deve ter pelo menos 3 letras e começar com letra maiúscula' });
+    }
+
+    const user = await userService.createUser(name, email);
+    res.status(201).json(user);
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: "Erro ao adicionar usuário" });
+    res.status(400).json({ error: err instanceof Error ? err.message : 'Erro ao criar usuário' });
   }
-};
+}
