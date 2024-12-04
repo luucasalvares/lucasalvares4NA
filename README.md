@@ -112,10 +112,12 @@ npm install
 Análise de Riscos
 A análise de riscos é crucial para identificar possíveis problemas que podem afetar o projeto. Os principais riscos incluem:
 
-Inserção de Dados nas Tabelas "users" e "livros"
+```Inserção de Dados nas Tabelas "users" e "livros"```
+
 Este documento descreve o processo de inserção de dados nas tabelas "users" e "livros" do banco de dados.
 
-Inserção de Dados na Tabela "users"
+```Inserção de Dados na Tabela "users"```
+
 A tabela "users" armazena as informações dos usuários, como nome, e-mail e senha.
 
 Estrutura da Tabela "users":
@@ -129,12 +131,17 @@ Estrutura da Tabela "users":
     `;
 ```
 
+```Inserção de Dados na Tabela "livros"```
+
+A tabela "livros" armazena as informações dos livros, como nome do livro, nome do autor do livro & preço do livro.
+
 Estrutura da Tabela "livros":
 ```sql
-CREATE TABLE IF NOT EXISTS users (
+      CREATE TABLE IF NOT EXISTS users (
         id SERIAL PRIMARY KEY,
-        name VARCHAR(100) NOT NULL,
-        email VARCHAR(100) NOT NULL UNIQUE
+        title VARCHAR(100) NOT NULL,
+        author VARCHAR(100) NOT NULL,
+        price FLOAT NOT NULL
       );
     `;
 ```
