@@ -118,7 +118,7 @@ Este documento descreve o processo de inserção de dados nas tabelas "users" e 
 Inserção de Dados na Tabela "users"
 A tabela "users" armazena as informações dos usuários, como nome, e-mail e senha.
 
-
+```sql
 Estrutura da Tabela "users":
  CREATE TABLE IF NOT EXISTS users (
         id SERIAL PRIMARY KEY,
@@ -127,7 +127,9 @@ Estrutura da Tabela "users":
         password VARCHAR (100) NOT NULL
       );
     `;
+```
 
+```sql
 Estrutura da Tabela "livros":
 CREATE TABLE IF NOT EXISTS users (
         id SERIAL PRIMARY KEY,
@@ -135,6 +137,7 @@ CREATE TABLE IF NOT EXISTS users (
         email VARCHAR(100) NOT NULL UNIQUE
       );
     `;
+```
 
 ## Conclusão
 Este README fornece uma visão geral dos requisitos e instruções necessárias para configurar e iniciar a aplicação. Para mais informações, consulte a documentação adicional ou entre em contato com a equipe de desenvolvimento.
