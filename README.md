@@ -118,8 +118,8 @@ Este documento descreve o processo de inserção de dados nas tabelas "users" e 
 Inserção de Dados na Tabela "users"
 A tabela "users" armazena as informações dos usuários, como nome, e-mail e senha.
 
-```sql
 Estrutura da Tabela "users":
+```sql
  CREATE TABLE IF NOT EXISTS users (
         id SERIAL PRIMARY KEY,
         name VARCHAR(100) NOT NULL,
@@ -129,8 +129,8 @@ Estrutura da Tabela "users":
     `;
 ```
 
-```sql
 Estrutura da Tabela "livros":
+```sql
 CREATE TABLE IF NOT EXISTS users (
         id SERIAL PRIMARY KEY,
         name VARCHAR(100) NOT NULL,
